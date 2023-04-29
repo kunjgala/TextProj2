@@ -18,7 +18,7 @@ public class BMH {
         }
       }
       else {
-        int l = lastocc[T.charAt(i)-'a'];
+        int l = lastocc[(int) T.charAt(i)];
         i = i+P.length()-Math.min(j, 1+l);
         j = P.length()-1;
       }
@@ -28,11 +28,11 @@ public class BMH {
   }
 
   public int[] computeLastOcc(String P) {
-    int[] lastocc = new int[26];
-    for(int i=0;i<26;i++) lastocc[i]=-1;
+    int[] lastocc = new int[256];
+    for(int i=0;i<256;i++) lastocc[i]=-1;
     for(int i=P.length()-1;i>=0;i--) {
-      if(lastocc[P.charAt(i)-'a']==-1) {
-        lastocc[P.charAt(i)-'a']=i;
+      if(lastocc[(int) P.charAt(i)]==-1) {
+        lastocc[(int) P.charAt(i)]=i;
       }
     }
     return lastocc;
